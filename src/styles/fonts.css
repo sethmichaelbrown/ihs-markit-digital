@@ -1,11 +1,21 @@
-.bold-text{
+h3, h4, h5{
+  font-family: 'Times New Roman', Times, serif
+}
+
+.bold-text {
   font-weight: bolder;
 }
 
-.green-text{
+.green-text {
   color: green
 }
 
-.red-text{
+.red-text {
   color: red
+}
+
+.range-text {
+  color: gray;
+  font-size: 14px;
+  font-weight: 400;
 }
