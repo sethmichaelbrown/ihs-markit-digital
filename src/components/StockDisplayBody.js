@@ -11,7 +11,7 @@ const StockDisplayBody = (props) => {
       {Object.keys(props.stock).length > 0 &&
         <div className="stockDisplayBody-rows">
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-md-6">
               <div className="sDB-flex-left">
                 <h4>{props.stock.LastPrice}</h4>
@@ -19,29 +19,29 @@ const StockDisplayBody = (props) => {
             </div>
             <div className="col-md-6">
               <div className="sDB-flex-right">
-                <span className={props.stock.ChangePercent > 0 ? 'green-text' : 'red-text'} >{`${props.stock.Change.toFixed(2)} ( ${props.stock.ChangePercent.toFixed(2)}%)`}</span>
+                <h5 className={props.stock.ChangePercent > 0 ? 'green-text' : 'red-text'} >{`${props.stock.Change.toFixed(2)} ( ${props.stock.ChangePercent.toFixed(2)}%)`}</h5>
               </div>
             </div>
           </div>
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-sm-6">
               <div className="sDB-flex-left">
-                Range
+                <span className="range-text">Range</span>
               </div>
             </div>
             <div className="col-sm-6">
               <div className="sDB-flex-right">
-                <span className='bold-text text-left'>{`${props.stock.Low.toFixed(2)}-${props.stock.High.toFixed(2)}`}</span>
+                <span className='bold-text text-left'>{`${props.stock.Low.toFixed(2)} - ${props.stock.High.toFixed(2)}`}</span>
               </div>
             </div>
           </div>
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-sm-6">
               <div className="sDB-flex-left">
-                Open
-                </div>
+                <span className="range-text">Open</span>
+              </div>
             </div>
             <div className="col-sm-6">
               <div className="sDB-flex-right">
@@ -50,11 +50,11 @@ const StockDisplayBody = (props) => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-sm-6">
               <div className="sDB-flex-left">
-                Volume
-                </div>
+                <span className="range-text">Volume</span>
+              </div>
             </div>
             <div className="col-sm-6">
               <div className="sDB-flex-right">
@@ -63,11 +63,11 @@ const StockDisplayBody = (props) => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-sm-6">
               <div className="sDB-flex-left">
-                Market Cap
-                </div>
+                <span className="range-text">Market Cap</span>
+              </div>
             </div>
             <div className="col-sm-6">
               <div className="sDB-flex-right">
@@ -77,13 +77,13 @@ const StockDisplayBody = (props) => {
           </div>
 
 
-          <div className="row">
+          <div className="row sDB-item py-2">
             <div className="col-sm-6">
               <div className="sDB-flex-left"></div>
             </div>
             <div className="col-sm-6">
               <div className="sDB-flex-right">
-                <span>{`As of ${props.time}`}</span>
+                <span className='range-text'>{`As of ${props.time}`}</span>
               </div>
             </div>
           </div>

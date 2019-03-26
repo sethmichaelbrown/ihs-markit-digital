@@ -25,3 +25,17 @@
   justify-content: flex-end;
   height: 100%;
 }
+
+.sDB-item {
+  border-bottom: solid;
+  border-bottom-color: #d3d3d3;
+  border-bottom-width: 1px;
+}
+
+.no-pad-left {
+  padding-left: 0 !important;
+}
+
+.no-pad-right {
+  padding-right: 0 !important;
+}

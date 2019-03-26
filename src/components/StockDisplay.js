@@ -20,6 +20,9 @@ class StockDisplay extends Component {
   setDefaultStock = async () => {
     const time = this.props.stockList.MSFT.Timestamp.split(' ')[3]
     await this.parseTime(time)
+    
+    const defaultStock = this.props.stockList.MSFT
+    defaultStock.Name = defaultStock.Name.toUpperCase()
     this.setState({ ...this.state, defaultStock: this.props.stockList.MSFT })
   }
 
@@ -33,10 +36,12 @@ class StockDisplay extends Component {
     this.setState({ ...this.state, invalidSearch: null })
 
     if (this.props.stockList[`${this.state.searchQuery}`]) {
-      this.setState({ ...this.state, selectedStock: this.props.stockList[`${this.state.searchQuery}`] })
+      const selected = this.props.stockList[`${this.state.searchQuery}`]
+      selected.Name = selected.Name.toUpperCase()
+      this.setState({ ...this.state, selectedStock: selected })
     }
     else {
-      this.setState({ ...this.state, invalidSearch: this.props.stockList.IVD }, () => console.log(this.state))
+      this.setState({ ...this.state, invalidSearch: this.props.stockList.IVD })
     }
   }
 
@@ -60,11 +65,11 @@ class StockDisplay extends Component {
   render() {
     return (
       <section className="StockDisplay mt-3">
-        {this.props.stockList &&
+        {this.props.stockList && this.state.defaultStock &&
           <section>
             <div className="row">
-              <div className="col-sm-12">
-                <h1>{this.state.selectedStock ? this.state.selectedStock.Name : this.state.defaultStock.Name}</h1>
+              <div className="col-sm-12 my-2">
+                <h3>{this.state.selectedStock ? this.state.selectedStock.Name : this.state.defaultStock.Name}</h3>
               </div>
 
               <div className="col-sm-12">
@@ -74,13 +79,15 @@ class StockDisplay extends Component {
                 />
               </div>
 
-              <div className="col-sm-12">
-                <SearchBar
-                  defaultStock={this.state.defaultStock}
-                  handleSubmit={this.handleSubmit}
-                  invalidSearch={this.state.invalidSearch}
-                  setSearchQuery={this.setSearchQuery}
-                />
+              <div className="row mt-2">
+                <div className="col-sm-12">
+                  <SearchBar
+                    defaultStock={this.state.defaultStock}
+                    handleSubmit={this.handleSubmit}
+                    invalidSearch={this.state.invalidSearch}
+                    setSearchQuery={this.setSearchQuery}
+                  />
+                </div>
               </div>
             </div>
           </section>
