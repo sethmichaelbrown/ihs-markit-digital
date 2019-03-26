@@ -1,0 +1,11 @@
+.StockDisplay{
+  border-top: solid;
+  border-top-color: black;
+  border-top-width: 5px;
+}
+
+.list-group-item{
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+}
