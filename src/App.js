@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         {this.state.stockList &&
           <section className="row container ml-2">
-            <div className="col-md-6">
+            <div className="col-sm-4">
               <StockDisplay
                 stockList={this.state.stockList} />
             </div>

@@ -1,90 +1,94 @@
 import React from 'react'
-import moment from 'moment'
+import '../styles/stockDisplay.css'
+import '../styles/fonts.css'
 
 
 const StockDisplayBody = (props) => {
-  
+
 
   return (
     <section className="StockDisplayBody">
       {Object.keys(props.stock).length > 0 &&
-        <div className="value-list">
-        {console.log(props.stock)}
-          <ul className='list-group'>
+        <div className="stockDisplayBody-rows">
 
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-10 float-left">
-                  {props.stock.LastPrice}
-                </div>
-
-                <div className="col-md-2 float-right">
-                  <span>{`${props.stock.Change.toFixed(2)} `}</span>
-                </div>
+          <div className="row">
+            <div className="col-md-6">
+              <div className="sDB-flex-left">
+                <h4>{props.stock.LastPrice}</h4>
               </div>
-            </li>
-
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-7 float-left">
-                  Range
-                </div>
-
-                <div className="col-md-5 float-right">
-                  <span>{`${props.stock.Low.toFixed(2)}-${props.stock.High.toFixed(2)}`}</span>
-                </div>
+            </div>
+            <div className="col-md-6">
+              <div className="sDB-flex-right">
+                <span className={props.stock.ChangePercent > 0 ? 'green-text' : 'red-text'} >{`${props.stock.Change.toFixed(2)} ( ${props.stock.ChangePercent.toFixed(2)}%)`}</span>
               </div>
-            </li>
+            </div>
+          </div>
 
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-10 float-left">
-                  Open
-                </div>
-
-                <div className="col-md-2 float-right">
-                  <span>{`${props.stock.Open} `}</span>
-                </div>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="sDB-flex-left">
+                Range
               </div>
-            </li>
-
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-10 float-left">
-                  Volume
-                </div>
-
-                <div className="col-md-2 float-right">
-                  <span>{`${(props.stock.Volume / 1000000).toFixed(1)}M`}</span>
-                </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="sDB-flex-right">
+                <span className='bold-text text-left'>{`${props.stock.Low.toFixed(2)}-${props.stock.High.toFixed(2)}`}</span>
               </div>
-            </li>
+            </div>
+          </div>
 
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-10 float-left">
-                  Market Cap
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="sDB-flex-left">
+                Open
                 </div>
-
-                <div className="col-md-2 float-right">
-                  <span>{`${(props.stock.MarketCap / 1000000000).toFixed(1)}B`}</span>
-                </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="sDB-flex-right">
+                <span className='bold-text'>{`${props.stock.Open} `}</span>
               </div>
-            </li>
+            </div>
+          </div>
 
-            <li className="list-group-item">
-              <div className="row">
-                <div className="col-md-10 float-left">
-                 
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="sDB-flex-left">
+                Volume
                 </div>
-
-                <div className="col-md-2 float-right">
-                  <span>{}</span>
-                </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="sDB-flex-right">
+                <span className='bold-text'>{`${(props.stock.Volume / 1000000).toFixed(1)}M`}</span>
               </div>
-            </li>
+            </div>
+          </div>
 
-          </ul>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="sDB-flex-left">
+                Market Cap
+                </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="sDB-flex-right">
+                <span className='bold-text'>{`${(props.stock.MarketCap / 1000000000).toFixed(1)}B`}</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="sDB-flex-left"></div>
+            </div>
+            <div className="col-sm-6">
+              <div className="sDB-flex-right">
+                <span>{`As of ${props.time}`}</span>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       }
     </section>

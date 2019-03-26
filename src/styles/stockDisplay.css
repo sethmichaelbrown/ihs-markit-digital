@@ -1,11 +1,27 @@
-.StockDisplay{
+.StockDisplay {
   border-top: solid;
   border-top-color: black;
   border-top-width: 5px;
 }
 
-.list-group-item{
+.list-group-item {
   border-top: none !important;
   border-right: none !important;
   border-left: none !important;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.sDB-flex-left {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.sDB-flex-right {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
 }
