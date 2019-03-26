@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    stockList: {}
+    stockList: null
   }
 
   componentDidMount() {
@@ -17,8 +17,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <StockDisplay
-          stockList={this.state.stockList} />
+        {this.state.stockList &&
+          <section className="row container ml-2">
+            <div className="col-sm-4">
+              <StockDisplay
+                stockList={this.state.stockList} />
+            </div>
+          </section>}
       </div>
     );
   }
